@@ -1,6 +1,12 @@
 
 import { Mongo } from 'meteor/mongo';
+import { FilesCollection } from 'meteor/ostrio:files';
 
-const Stars = new Mongo.Collection('stars');
+const Songs = new Mongo.Collection('songs');
+const Versions = new FilesCollection({
+    collectionName: 'Versions',
+    storagePath: '/opt/repet2000/versions',
+    allowClientCode: true, // Disallow remove files from Client
+});
 
-export {Stars};
+export {Songs, Versions};
